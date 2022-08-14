@@ -1,0 +1,7 @@
+.vs/
+TestServer/bin
+TestServer/obj
+TestClient/bin
+TestClient/obj
+
+*.swp
