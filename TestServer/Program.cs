@@ -1,6 +1,9 @@
 ﻿using System.Net.Sockets;
 
-void WriteLine(string msg) => Console.WriteLine(msg);
+void WriteLine(string msg)
+{
+    Console.WriteLine($"{System.DateTime.Now.ToString()}: {msg}");
+}
 
 int port = 8080;
 TcpListener listener = new TcpListener(System.Net.IPAddress.Any, port);
@@ -17,9 +20,10 @@ try
     while (receivedBytes > 0)
     {
         string content = System.Text.Encoding.UTF8.GetString(buffer, 0, receivedBytes);
-        Console.WriteLine($"receivedBytes:{receivedBytes},content:{content}");
+        WriteLine($"receivedBytes:{receivedBytes},content:{content}");
         receivedBytes = socket.Receive(buffer);
     }
+    WriteLine("receivedBytes is 0");
 }
 catch (System.Net.Sockets.SocketException socketException)
 {

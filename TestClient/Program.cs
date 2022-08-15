@@ -1,6 +1,9 @@
 ﻿using System.Net.Sockets;
 
-void WriteLine(string msg) => Console.WriteLine(msg);
+void WriteLine(string msg)
+{
+    Console.WriteLine($"{System.DateTime.Now.ToString()}: {msg}");
+}
 
 string hostname = "localhost";
 if (args.Length > 0)
